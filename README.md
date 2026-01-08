@@ -10,12 +10,26 @@ Discrete phenomena pervade physics: quantum numbers, particle species, phase tra
 
 **Core claim:** Discreteness is not fundamental; identifiability is.
 
+## The Anthropic Reduction
+
+The standard anthropic principle fragments into dozens of fine-tuning puzzles. This paper reduces all of them to a single geometric requirement:
+
+> **Dimensionality must be variable.**
+
+The argument:
+1. Observation requires projection (high-D → low-D)
+2. Projection requires a dimensional gradient
+3. If dimensionality were uniform everywhere, there would be no projection, no observation, no observers
+4. Therefore: observers necessarily find themselves where dimensionality varies
+
+All fine-tuning (constants, chemistry, cosmology) reduces to: *does this configuration permit dimensional gradients that support observation?*
+
 ## Key Results
 
 - **Quotient mechanism**: Observation defines equivalence classes; equivalence classes are necessarily discrete
-- **Rank as integer invariant**: The identifiable dimension `rank(dh)` can only take integer values, producing discrete jumps under structural changes
+- **Anthropic reduction**: One condition (variable dimensionality) replaces dozens of fine-tuning puzzles
 - **Cross-domain unification**: Same mechanism in information geometry (Fisher rank), quantum mechanics (eigenvalues), symbol formation (tokens), cosmology (particle species)
-- **Anthropic dissolution**: "Why something rather than nothing" dissolves — to observe is to project, to project is to produce discreteness
+- **"Why something?" dissolved**: To ask is to observe; to observe is to project; projection produces integers
 
 ## Paper
 
