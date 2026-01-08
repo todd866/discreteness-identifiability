@@ -240,46 +240,98 @@ This is a packing-number argument: an $r$-dimensional manifold admits $O(\vareps
 
 This connects to the ``minimal embedding dimension'' results [2]: cyclic processes require $k \geq 3$ for continuous dynamics; below this threshold, dynamics collapse into discrete categories. The discreteness is not chosen but \emph{forced} by dimensional constraints combined with finite resolution.
 
-\section{Discussion: Connections to Anthropic Reasoning}
+\section{Observation Requires Dimensional Gradients}
 
-\textit{This section is more speculative than the preceding technical material. We offer it as a conceptual framework, not a rigorous result.}
+We now prove that useful observation requires a gap between environment dimension and representation dimension. This upgrades the anthropic discussion from conjecture to theorem.
 
-\subsection{Observers Require Scale Separation}
+\subsection{Functional Definition of Observer}
 
-The framework developed above suggests a structural requirement for observation: there must be a separation between high-dimensional microstates and lower-dimensional accessible interfaces. An observer is, in this view, a system that compresses high-dimensional environmental states into low-dimensional records (perceptions, measurements, memories).
-
-This is not a claim about literal spacetime dimension. It is a claim about \emph{effective dimensionality}---the rank of the accessible dynamics, the number of identifiable degrees of freedom, the dimension of the coarse-grained description.
+We define observers by what they do, not what they are made of:
 
 \medskip
 \noindent\fbox{\parbox{\dimexpr\linewidth-2\fboxsep-2\fboxrule}{%
-\textbf{Conjecture (Effective Dimension Gradient).} Observers require an interface where the effective/identifiable dimension of the observation channel is lower than the microstate dimension of the environment, and where this effective dimension can change across conditions (coupling, scale, bifurcation) to support stable memory and control.}}
+\textbf{Definition (Observer).} An \emph{observer} is a physical subsystem $S$ with state space $\mathcal{S}$ equipped with:
+\begin{enumerate}
+    \item An \emph{observation map} $h: X \to \mathcal{S}$ from environment states to internal states
+    \item \emph{Stability}: small perturbations of $x \in X$ do not change the representation $h(x)$ (equivalently: $h$ has nontrivial fibers)
+    \item \emph{Utility}: the representation $h(x)$ enables prediction or control of future environment states
+\end{enumerate}}}
 \medskip
 
-\subsection{Reframing Fine-Tuning}
+This definition is substrate-independent: it applies to brains, measuring devices, thermostats, or any system that forms stable, useful representations.
 
-If observation requires effective-dimension gradients, then fine-tuning questions take a new form:
+\subsection{The Dimensional Gradient Theorem}
+
+\textbf{Theorem.} If $h: X \to \mathcal{S}$ satisfies the observer definition, then:
+\begin{align}
+    0 < \mathrm{rank}(dh) < \dim X.
+\end{align}
+
+\textit{Proof.}
+
+\textbf{(i) Rank $> 0$:} Suppose $\mathrm{rank}(dh) = 0$ everywhere. Then $dh = 0$, so $h$ is locally constant: $h(x_1) = h(x_2)$ for all $x_1, x_2$ in any connected component. The representation carries no information about the environment state. But then $h(x)$ cannot enable prediction or control---it provides no discrimination between states. This violates Utility. $\Rightarrow$ $\mathrm{rank}(dh) > 0$.
+
+\textbf{(ii) Rank $< \dim X$:} Suppose $\mathrm{rank}(dh) = \dim X$ everywhere, and $\dim \mathcal{S} \geq \dim X$. Then $h$ is an immersion: locally injective, with trivial fibers. Every infinitesimal change in $x$ produces a distinguishable change in $h(x)$.
+
+This violates Stability in three ways:
 \begin{itemize}
-    \item \textbf{Physical constants} determine whether stable low-dimensional interfaces can form. Some parameter regimes may preclude coarse-grainable structure.
-    \item \textbf{Chemistry} is the regime where molecular complexity permits stable symbolic encoding---neither too few degrees of freedom (no capacity) nor too many (no stability).
-    \item \textbf{Cosmology} determines where and when effective-dimension gradients arise. Rapid equilibration erases gradients; permanent disequilibrium prevents stable projections.
+    \item \textbf{No equivalence classes}: If fibers are singletons, there are no nontrivial equivalence classes---no ``same representation for different microstates.''
+    \item \textbf{No noise tolerance}: Any perturbation $x \mapsto x + \delta x$ changes the output. The representation is maximally sensitive to noise.
+    \item \textbf{No compression}: The representation has the same complexity as the environment. But then $S$ is not representing $X$; it is \emph{duplicating} $X$. This is not observation but copying.
 \end{itemize}
 
-This does not \emph{solve} fine-tuning---it reframes it as a question about the existence of coarse-grainable structure rather than specific parameter values.
+Moreover, Utility requires generalization: the representation must group states that require similar responses. If every state maps to a unique representation, no generalization occurs---the system cannot learn or predict, only memorize.
 
-\subsection{Why Is There Something? (A Dissolution)}
+$\Rightarrow$ $\mathrm{rank}(dh) < \dim X$. \hfill $\square$
 
-The question ``why is there something rather than nothing'' may be malformed if ``something'' means ``discrete identifiable structure.'' On our account:
+\subsection{The Anthropic Implication}
+
+The theorem implies:
+
+\medskip
+\noindent\fbox{\parbox{\dimexpr\linewidth-2\fboxsep-2\fboxrule}{%
+\textbf{Corollary (Dimensional Gradient Necessity).} Any observer, in any physical substrate, requires:
+\begin{enumerate}
+    \item A high-dimensional environment $X$ (source of information)
+    \item A lower-dimensional representation space $\mathcal{S}$ (compressed model)
+    \item An observation map $h$ with $0 < \mathrm{rank}(dh) < \dim X$
+\end{enumerate}
+This is the ``dimensional gradient'' that observation requires.}}
+\medskip
+
+Note what this does \emph{not} require:
 \begin{itemize}
-    \item To ask is to observe.
-    \item To observe is to project through a finite-capacity channel.
-    \item Projection through finite capacity produces discrete outputs (at least: integer-valued invariants).
+    \item Specific physical constants
+    \item Carbon-based chemistry
+    \item Particular cosmological conditions
 \end{itemize}
 
-Therefore, any observer will find themselves in a universe with discrete structure. The alternative is not ``nothing''---it is unobservability. This is not an explanation of why the universe exists, but a dissolution of the question: ``nothing'' may not be a coherent observable state.
+It requires only that \emph{some} dimensional gradient exists. The traditional fine-tuning puzzles (why these constants?) are reframed: constants must permit the formation of stable, compressive interfaces. This is a weaker requirement than ``constants must permit carbon life.''
 
-\subsection{Limitations}
+\subsection{Why Is There Something?}
 
-These speculations do not constitute a derivation. We have not shown that effective-dimension gradients are \emph{sufficient} for observers, only that they may be \emph{necessary}. The connection between local differential geometry (rank of maps) and cosmological structure remains to be established rigorously. We flag this section as conceptual scaffolding, not a proven result.
+The theorem also dissolves ``why is there something rather than nothing'':
+
+\begin{enumerate}
+    \item ``Something'' means ``discrete identifiable structure.''
+    \item To ask the question is to observe.
+    \item To observe requires $0 < \mathrm{rank}(dh) < \dim X$ (by the theorem).
+    \item If $\mathrm{rank}(dh) > 0$, the observer can make distinctions---there is identifiable structure.
+    \item Therefore: any observer will find themselves in a universe with ``something.''
+\end{enumerate}
+
+The alternative---$\mathrm{rank}(dh) = 0$---is not ``nothing''; it is the absence of observation. The question presupposes its answer.
+
+\subsection{Remaining Gaps}
+
+The theorem proves that dimensional gradients are \emph{necessary} for observation. It does not prove:
+\begin{itemize}
+    \item That dimensional gradients are \emph{sufficient} (other conditions may also be required)
+    \item That our universe is the only way to achieve such gradients
+    \item Any specific connection between rank and cosmological parameters
+\end{itemize}
+
+The theorem is local (about $dh$ at a point) and functional (about what observers do). Connecting it to global cosmological structure remains open.
 
 \section{Worked Example: Rank Jump Under Coupling}
 
@@ -386,10 +438,12 @@ This mechanism operates across domains:
 \medskip
 \noindent\fbox{\parbox{\dimexpr\linewidth-2\fboxsep-2\fboxrule}{%
 \textbf{What we claim.} Observation maps carry integer-valued invariants (rank, dimension, index). Discrete transitions in observed phenomena correspond to discrete changes in these invariants.\\[0.5em]
-\textbf{What we do NOT claim.} Quotients automatically produce discrete equivalence classes. (They don't---see \S2.3.) Continuous spectra don't exist. (They do---see \S4.2.) All fine-tuning reduces to one principle. (It might, but this is conjecture---see \S6.)}}
+\textbf{What we do NOT claim.} Quotients automatically produce discrete equivalence classes. (They don't---see \S2.3.) Continuous spectra don't exist. (They do---see \S4.2.) Dimensional gradients are sufficient for observers. (They're necessary, not sufficient---see \S6.5.)}}
 \medskip
 
 The ubiquity of integers in physics is not mysterious once we recognize that observation maps have integer-valued invariants by geometric necessity. The ``discreteness problem'' shifts from ``why is reality discrete?'' to ``why do observation channels have finite rank?''---and the latter has a straightforward answer: finite-capacity systems cannot resolve infinite-dimensional structure.
+
+The Dimensional Gradient Theorem (\S6) proves that any useful observer requires $0 < \mathrm{rank}(dh) < \dim X$. This is the minimal anthropic condition: not carbon, not water, not specific constants---just a gap between environment complexity and representation complexity. The traditional fine-tuning puzzles are reframed as questions about whether stable, compressive interfaces can form.
 
 \textbf{Discreteness is not fundamental; identifiability is.}
 
