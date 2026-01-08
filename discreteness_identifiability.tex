@@ -85,7 +85,7 @@ $^*$Corresponding author: \href{mailto:itod2305@uni.sydney.edu.au}{\color{blue}{
 \vspace{1cm}
 
 \noindent
-{\small {\bf Abstract} - Discrete phenomena pervade physics: quantum numbers, particle species, phase transitions, symbolic codes. Yet the underlying state spaces are typically continuous. We identify a unifying mechanism: \emph{discreteness emerges from identifiability}. When a continuous high-dimensional system is observed through a constraint, symmetry, or projection, the observation map induces equivalence classes on the state space. The number of distinguishable classes---measured by the rank of the observation map's differential---is necessarily integer-valued. Structural changes that alter this rank produce discrete jumps. We demonstrate this mechanism in three domains: (1) information geometry, where Fisher rank activation under coupling produces emergent statistical coordinates; (2) quantum mechanics, where measurement eigenvalues label equivalence classes under the observable's action; (3) symbol formation, where tokens emerge as stable equivalence classes in phase space. This framework reduces the anthropic principle to a single geometric requirement: \emph{dimensionality must be variable}. Observation requires projection; projection requires a dimensional gradient; therefore observers can only exist where dimensionality varies. Fine-tuning, early universe structure, and ``why is there something rather than nothing'' all reduce to dimensional selection. Discreteness is not fundamental but \emph{observational}---a necessary consequence of finite-capacity observers accessing high-dimensional substrates.}
+{\small {\bf Abstract} - Discrete phenomena pervade physics: quantum numbers, particle species, phase transitions, symbolic codes. Yet the underlying state spaces are typically continuous. We identify a unifying mechanism: \emph{discrete transitions emerge from integer-valued invariants of observation maps}. When a continuous high-dimensional system is observed through a constraint, symmetry, or projection, the observation map carries integer-valued invariants---rank, dimension, index---that can change only discretely. The \emph{identifiable dimension} (rank of the observation differential) controls how many effective degrees of freedom are accessible; when this rank changes, qualitative transitions occur. We demonstrate this mechanism in three domains: (1) information geometry, where Fisher rank activation under coupling produces emergent statistical coordinates; (2) quantum mechanics, where measurement partitions state space and integer invariants (degeneracies, quantum numbers) label the structure; (3) symbol formation, where tokens emerge as stable equivalence classes in phase space under finite-resolution observation. We discuss connections to anthropic reasoning: observers require a separation between high-dimensional microstates and lower-dimensional accessible interfaces, suggesting that \emph{effective dimensionality gradients} are necessary for observation. Discreteness is not fundamental but \emph{observational}---a necessary consequence of finite-capacity observers accessing high-dimensional substrates through maps with integer-valued invariants.}
 
 \vspace{0.75cm}
 
@@ -127,16 +127,28 @@ This is the dimension of the subspace of state-space directions that ``matter'' 
 
 \medskip
 \noindent\fbox{\parbox{\dimexpr\linewidth-2\fboxsep-2\fboxrule}{%
-\textbf{Key property.} The rank function $r: X \to \mathbb{Z}_{\geq 0}$ is integer-valued by definition. It is lower semicontinuous: rank can only jump \emph{up} under limits. Generic perturbations do not change rank; only structural transitions (bifurcations, symmetry breaking, coupling activation) produce rank jumps.}}
+\textbf{Key property.} The rank function $r: X \to \mathbb{Z}_{\geq 0}$ is integer-valued by definition. It is lower semicontinuous: under limits, rank can \emph{drop} but cannot increase. (The set of points with rank $\le k$ is closed.) Rank deficiencies occur on closed, typically nongeneric sets; changes correspond to structural singularities such as bifurcations, symmetry breaking, or coupling activation.}}
 \medskip
 
-\subsection{Why Integers Are Inevitable}
+\subsection{Why Integer Invariants Matter}
 
-The appearance of integers is not contingent but geometric. Any smooth map between manifolds has a well-defined rank at each point, and rank is integer-valued. This is pure linear algebra: the rank of a linear map equals the dimension of its image, which must be a non-negative integer.
+The appearance of integers is not contingent but geometric. Any smooth map between manifolds carries integer-valued invariants: rank, dimension of fibers, dimension of image, indices. These can change only discretely.
 
-What makes this physically significant is that \emph{observation maps are ubiquitous}. Every measurement, every projection, every coarse-graining is an observation map. And every observation map produces integer-valued rank, hence potential for discrete jumps.
+\medskip
+\noindent\fbox{\parbox{\dimexpr\linewidth-2\fboxsep-2\fboxrule}{%
+\textbf{What this does NOT imply.} A quotient structure does not automatically produce a discrete set of equivalence classes. Projecting $\mathbb{R}^2 \to \mathbb{R}$ via $(x,y) \mapsto x$ yields equivalence classes (vertical lines) indexed by $\mathbb{R}$---a continuous quotient. Discreteness of \emph{observed outcomes} requires additional structure: finite resolution, compactness, spectral gaps, or stability constraints. What \emph{is} always discrete are the integer-valued invariants (rank, dimension, index) that characterize the observation map itself.}}
+\medskip
 
-The ``discreteness problem'' dissolves: we should not ask why physics produces integers, but rather why we expected otherwise. The continuous substrate is real; the discrete observations are the necessary consequence of finite-capacity observation.
+The physically significant claim is this: if the identifiable dimension $r(x)$ controls how many effective degrees of freedom are accessible to an observer, then any qualitative change in what can be represented, encoded, or controlled will occur when $r(x)$ changes---and $r(x)$ changes only in integer steps.
+
+\textbf{Proposition (informal).} Let $h: X \to Y$ be an observation map with identifiable dimension $r = \mathrm{rank}(dh)$. Then:
+\begin{enumerate}
+    \item The number of effective coordinates accessible to the observer is at most $r$.
+    \item At finite resolution $\varepsilon$, the number of distinguishable outputs scales as $O(\varepsilon^{-r})$.
+    \item Changes in $r$ produce qualitative transitions in the observer's effective description.
+\end{enumerate}
+
+This connects integer ranks to observable phenomena: number of order parameters, identifiable couplings, capacity scaling laws, and effective degrees of freedom.
 
 \section{Information Geometry: Rank Activation Under Coupling}
 
@@ -169,7 +181,7 @@ This is \textbf{manifold expansion}: coupling reveals new statistical coordinate
 
 In Kuramoto oscillators with coupling $K$, the order parameter $(r, \Psi)$ becomes identifiable only above a critical coupling $K_c$. Below threshold, all coupling values produce statistically indistinguishable outputs (for observations restricted to $(r, \Psi)$). Above threshold, the Fisher rank jumps from 0 to 2. This discrete transition---the synchronization transition---emerges from continuous dynamics through the rank mechanism.
 
-\section{Quantum Mechanics: Eigenvalues as Quotient Labels}
+\section{Quantum Mechanics: Integer Invariants from Measurement}
 
 \subsection{Measurement as Quotient}
 
@@ -177,21 +189,27 @@ In quantum mechanics, measurement of observable $\hat{A}$ partitions Hilbert spa
 \begin{align}
     \mathcal{H} = \bigoplus_\lambda \mathcal{H}_\lambda, \quad \mathcal{H}_\lambda := \{|\psi\rangle : \hat{A}|\psi\rangle = \lambda|\psi\rangle\}.
 \end{align}
-States within the same eigenspace are observationally equivalent with respect to $\hat{A}$: they yield the same measurement outcome with certainty.
+States within the same eigenspace are observationally equivalent with respect to $\hat{A}$: they yield the same measurement outcome with certainty. Measurement induces a quotient structure on state space.
 
-The eigenvalues $\{\lambda\}$ are labels for equivalence classes---points in the quotient space $\mathcal{H}/{\sim_A}$. Their discreteness is not a property of the underlying Hilbert space (which is continuous, even infinite-dimensional) but of the quotient structure induced by measurement.
+\subsection{When Spectra Are Discrete (and When They Are Not)}
 
-\subsection{Why Eigenvalues Are Discrete}
+The quotient structure itself does not guarantee discrete outcomes. Many observables have \emph{continuous spectrum}: position, momentum, and the free-particle Hamiltonian all yield continuous ranges of eigenvalues. The quotient labels form a continuum.
 
-The discreteness of bound-state spectra follows from compactness of the configuration space (or decay conditions at infinity). But the more fundamental point is that eigenvalues label equivalence classes, and equivalence classes are inherently discrete: a state is either in a class or not.
+Discrete spectra arise from additional structure:
+\begin{itemize}
+    \item \textbf{Boundary conditions}: confinement to a bounded region quantizes energy levels.
+    \item \textbf{Decay conditions}: requiring square-integrability at infinity selects discrete bound states.
+    \item \textbf{Compactness}: the hydrogen atom's discrete spectrum reflects the compact effective configuration space.
+    \item \textbf{Finite resolution}: even continuous spectra become discrete when binned by finite-precision measurement.
+\end{itemize}
 
-The continuous Hilbert space admits uncountably many states. The quotient by any non-trivial observable produces at most countably many (often finitely many) equivalence classes. Discreteness is the \emph{structure of the quotient}, not a property of the substrate.
+What \emph{is} always integer-valued are the invariants characterizing the spectral structure: degeneracies of eigenspaces, dimensions of irreducible representations, quantum numbers labeling symmetry multiplets. These are the integer invariants of quantum mechanics.
 
 \subsection{Collapse as Projection}
 
-Quantum ``collapse'' is projection from the full state to an equivalence class. This is the same geometric move as dimensional reduction: high-dimensional continuous dynamics, viewed through a low-dimensional projection, produce discrete outputs.
+Quantum ``collapse'' is projection from the full state to an equivalence class. This is the same geometric move as dimensional reduction: high-dimensional continuous dynamics, viewed through a projection, produce outputs labeled by equivalence classes.
 
-The probabilistic aspect (Born rule) determines \emph{which} equivalence class; the quotient structure determines \emph{that} equivalence classes exist and are discrete.
+The probabilistic aspect (Born rule) determines \emph{which} class; the quotient structure determines \emph{that} classes exist. Whether the labels form a discrete or continuous set depends on the observable and boundary conditions, not on the quotient structure alone.
 
 \section{Symbol Formation: Tokens as Equivalence Classes}
 
@@ -199,86 +217,110 @@ The probabilistic aspect (Born rule) determines \emph{which} equivalence class; 
 
 Biological and cognitive systems produce discrete symbols (genetic codons, phonemes, concepts) from continuous underlying dynamics. The standard explanation invokes evolutionary selection for error-robustness. But this begs the question: why are discrete codes \emph{possible}?
 
-The answer is again quotient geometry. A symbol is a stable equivalence class in phase space: a region where many different microstates produce the same functional output.
+The answer involves quotient geometry plus finite resolution. A symbol is a stable equivalence class in phase space: a region where many different microstates produce the same functional output under a finite-resolution observation channel.
 
-\subsection{Stability Requires Discreteness}
+\subsection{Stability and Finite Resolution}
 
 For a symbol to be reliably transmitted, it must be robust to perturbation. This requires that small changes in the underlying state do not change the symbol---i.e., that the symbol labels an \emph{open} set in state space.
 
-But open sets in the quotient topology correspond to equivalence classes that are stable under small perturbations of the observation map. The number of such stable classes is finite (or at most countable). Discreteness of the symbol alphabet follows from stability requirements.
+\medskip
+\noindent\fbox{\parbox{\dimexpr\linewidth-2\fboxsep-2\fboxrule}{%
+\textbf{Required assumptions.} Discrete symbol alphabets require: (1) finite resolution $\varepsilon > 0$ in the observation channel, (2) bounded energy or phase space volume, and (3) stability constraints that collapse continuous microvariation into finitely many robust macrostates.}}
+\medskip
+
+Under these assumptions, the number of distinguishable stable classes is finite. Without them, the quotient could be continuous.
 
 \subsection{The Alphabet Size}
 
-The number of distinguishable symbols is bounded by the rank of the observation map. If $h: X \to Y$ has rank $r$, then at most $O(\varepsilon^{-r})$ symbols can be distinguished at resolution $\varepsilon$. Higher rank admits larger alphabets; lower rank forces coarser coding.
+Given finite resolution $\varepsilon$ and an observation map $h: X \to Y$ with identifiable dimension $r = \mathrm{rank}(dh)$, the number of distinguishable symbols scales as:
+\begin{align}
+    |\text{alphabet}| \sim O(\varepsilon^{-r}).
+\end{align}
+This is a packing-number argument: an $r$-dimensional manifold admits $O(\varepsilon^{-r})$ $\varepsilon$-separated points. Higher rank admits larger alphabets; lower rank forces coarser coding.
 
-This connects to the ``minimal embedding dimension'' results [2]: cyclic processes require $k \geq 3$ for continuous dynamics; below this threshold, dynamics collapse into discrete categories. The discreteness is not chosen but \emph{forced} by dimensional constraints.
+This connects to the ``minimal embedding dimension'' results [2]: cyclic processes require $k \geq 3$ for continuous dynamics; below this threshold, dynamics collapse into discrete categories. The discreteness is not chosen but \emph{forced} by dimensional constraints combined with finite resolution.
 
-\section{Cosmological Structure and the Anthropic Principle}
+\section{Discussion: Connections to Anthropic Reasoning}
 
-\subsection{The Puzzle of Early Structure}
+\textit{This section is more speculative than the preceding technical material. We offer it as a conceptual framework, not a rigorous result.}
 
-The early universe exhibits more structure than naive thermodynamic arguments suggest. Galaxies, large-scale filaments, and discrete particle species appear ``too early'' given the time available for equilibration. The standard explanation invokes initial conditions (inflation, symmetry breaking). But this pushes the question back: why were initial conditions structured?
+\subsection{Observers Require Scale Separation}
 
-\subsection{Projection Creates Apparent Structure}
+The framework developed above suggests a structural requirement for observation: there must be a separation between high-dimensional microstates and lower-dimensional accessible interfaces. An observer is, in this view, a system that compresses high-dimensional environmental states into low-dimensional records (perceptions, measurements, memories).
 
-Our framework offers a different perspective: apparent structure may be a projection artifact.
-
-If the underlying geometry is high-dimensional and the observation channel (causal structure, measurement apparatus, cognitive interface) is low-dimensional, then \emph{any} observer will see discrete structure---even if the substrate is homogeneous.
-
-The discrete particle spectrum (electron, quark, photon, etc.) labels equivalence classes under the observation map defined by our measurement channels. The question ``why these particles?'' becomes ``why this observation map?''---which is ultimately a question about observer constitution, not substrate ontology.
-
-\subsection{The Anthropic Principle Reduced}
-
-The standard anthropic principle states: the universe must have properties compatible with conscious observers. This leads to elaborate fine-tuning arguments about physical constants, chemistry, and cosmological parameters. But these are all downstream consequences of a single geometric requirement:
+This is not a claim about literal spacetime dimension. It is a claim about \emph{effective dimensionality}---the rank of the accessible dynamics, the number of identifiable degrees of freedom, the dimension of the coarse-grained description.
 
 \medskip
 \noindent\fbox{\parbox{\dimexpr\linewidth-2\fboxsep-2\fboxrule}{%
-\textbf{Minimal Anthropic Condition.} Dimensionality must be variable.}}
+\textbf{Conjecture (Effective Dimension Gradient).} Observers require an interface where the effective/identifiable dimension of the observation channel is lower than the microstate dimension of the environment, and where this effective dimension can change across conditions (coupling, scale, bifurcation) to support stable memory and control.}}
 \medskip
 
-The argument is as follows:
-\begin{enumerate}
-    \item \textbf{Observation requires projection.} An observer is a system that maps high-dimensional states to low-dimensional outputs (perceptions, measurements, records).
-    \item \textbf{Projection requires a dimensional gradient.} If the substrate dimension equals the observation dimension everywhere, there is no projection---the ``observer'' is just the system itself.
-    \item \textbf{Dimensional gradients require variable dimensionality.} If dimensionality were uniform throughout reality (all high-D or all low-D), there would be no regions where projection is possible.
-    \item \textbf{Therefore: observers can only exist where dimensionality varies.}
-\end{enumerate}
+\subsection{Reframing Fine-Tuning}
 
-This is not a statement about biology, chemistry, or physics. It is pure geometry: observation \emph{is} dimensional collapse, and dimensional collapse requires a gradient.
-
-\subsection{Why We Find Ourselves in a Low-D Region}
-
-The apparent mystery of cosmic structure dissolves once we recognize selection effects. If dimensionality varies across the substrate---some regions high-D, some low-D, some with gradients---then observers will necessarily find themselves in regions where:
+If observation requires effective-dimension gradients, then fine-tuning questions take a new form:
 \begin{itemize}
-    \item There exists a high-D substrate (source of information)
-    \item There exists a low-D interface (observation channel)
-    \item The gradient between them is navigable (projection is well-defined)
+    \item \textbf{Physical constants} determine whether stable low-dimensional interfaces can form. Some parameter regimes may preclude coarse-grainable structure.
+    \item \textbf{Chemistry} is the regime where molecular complexity permits stable symbolic encoding---neither too few degrees of freedom (no capacity) nor too many (no stability).
+    \item \textbf{Cosmology} determines where and when effective-dimension gradients arise. Rapid equilibration erases gradients; permanent disequilibrium prevents stable projections.
 \end{itemize}
 
-We are not in a ``special'' region of the universe. We are in the \emph{only kind of region where the question can be asked}. The universe appears structured because structurelessness is unobservable.
+This does not \emph{solve} fine-tuning---it reframes it as a question about the existence of coarse-grainable structure rather than specific parameter values.
 
-\subsection{Fine-Tuning as Dimensional Selection}
+\subsection{Why Is There Something? (A Dissolution)}
 
-The traditional fine-tuning puzzles---why these physical constants? why this chemistry? why this cosmology?---are reframed as consequences of the dimensional selection principle:
-\begin{itemize}
-    \item \textbf{Physical constants} determine the rank structure of observation maps. Constants that produce rank-zero maps everywhere yield no observers.
-    \item \textbf{Chemistry} is the regime where molecular dimensionality permits stable codes. Too few degrees of freedom: no symbolic capacity. Too many: no stable tokens.
-    \item \textbf{Cosmology} determines where dimensional gradients form. A universe that equilibrates instantly has no gradients; a universe that never equilibrates has no stable projections.
-\end{itemize}
-
-All fine-tuning reduces to: \emph{does this configuration permit dimensional gradients that support observation?}
-
-\subsection{Why Is There Something?}
-
-The question ``why is there something rather than nothing'' is revealed as malformed. ``Something'' means discrete identifiable structure. ``Nothing'' means no identifiable structure. But:
+The question ``why is there something rather than nothing'' may be malformed if ``something'' means ``discrete identifiable structure.'' On our account:
 \begin{itemize}
     \item To ask is to observe.
-    \item To observe is to project.
-    \item To project is to produce equivalence classes.
-    \item Equivalence classes are discrete.
+    \item To observe is to project through a finite-capacity channel.
+    \item Projection through finite capacity produces discrete outputs (at least: integer-valued invariants).
 \end{itemize}
 
-Therefore: \textbf{no observer can ever find themselves in a universe with ``nothing.''} The question presupposes its answer. The alternative---a universe with uniform dimensionality, no gradients, no projection---is not ``nothing''; it is simply \emph{unaskable}.
+Therefore, any observer will find themselves in a universe with discrete structure. The alternative is not ``nothing''---it is unobservability. This is not an explanation of why the universe exists, but a dissolution of the question: ``nothing'' may not be a coherent observable state.
+
+\subsection{Limitations}
+
+These speculations do not constitute a derivation. We have not shown that effective-dimension gradients are \emph{sufficient} for observers, only that they may be \emph{necessary}. The connection between local differential geometry (rank of maps) and cosmological structure remains to be established rigorously. We flag this section as conceptual scaffolding, not a proven result.
+
+\section{Worked Example: Rank Jump Under Coupling}
+
+To ground the abstract framework, we present a concrete example where rank changes discretely.
+
+\subsection{Setup}
+
+Consider two random variables $X_1, X_2$ with a joint distribution parameterized by $(\mu_1, \mu_2, \kappa)$:
+\begin{align}
+    X_1 &\sim \mathcal{N}(\mu_1, 1), \quad X_2 \sim \mathcal{N}(\mu_2, 1), \quad \mathrm{Cov}(X_1, X_2) = \kappa.
+\end{align}
+The coupling parameter $\kappa \in [0,1)$ controls correlation.
+
+\subsection{Observation Map}
+
+Suppose we observe only the sum $Y = X_1 + X_2$. Then:
+\begin{align}
+    Y \sim \mathcal{N}(\mu_1 + \mu_2, 2 + 2\kappa).
+\end{align}
+The observation map $h: (\mu_1, \mu_2, \kappa) \mapsto (\mu_1 + \mu_2, 2 + 2\kappa)$ takes 3 parameters to 2 outputs.
+
+\subsection{Rank Analysis}
+
+The Jacobian of $h$ is:
+\begin{align}
+    dh = \begin{pmatrix} 1 & 1 & 0 \\ 0 & 0 & 2 \end{pmatrix}.
+\end{align}
+This has $\mathrm{rank}(dh) = 2$ for all $\kappa > 0$: the mean $\mu_1 + \mu_2$ and variance $2 + 2\kappa$ are identifiable, but $\mu_1$ and $\mu_2$ individually are not.
+
+Now suppose at $\kappa = 0$ the system factors: $X_1$ and $X_2$ are independent. If we restrict to the submanifold $\kappa = 0$, the effective parameter space is $(\mu_1, \mu_2)$ and the observation map becomes $h_0: (\mu_1, \mu_2) \mapsto (\mu_1 + \mu_2, 2)$. This has $\mathrm{rank}(dh_0) = 1$: only the sum is identifiable.
+
+\subsection{The Rank Jump}
+
+Crossing from $\kappa = 0$ to $\kappa > 0$:
+\begin{itemize}
+    \item At $\kappa = 0$: rank = 1 (only sum identifiable)
+    \item At $\kappa > 0$: rank = 2 (sum and variance identifiable)
+\end{itemize}
+This is a discrete transition. Continuous variation in $\kappa$ produces a discrete jump in identifiable dimension. The observer's effective description changes qualitatively: a new coordinate (variance sensitivity) becomes accessible.
+
+This toy example illustrates the general mechanism: coupling activation increases Fisher rank, producing discrete transitions in what observers can learn.
 
 \section{The Structural Spine}
 
@@ -287,12 +329,11 @@ The preceding applications share a common structure:
 \begin{center}
 \begin{tabular}{|l|l|l|}
 \hline
-\textbf{Domain} & \textbf{Observation map} & \textbf{Discrete output} \\
+\textbf{Domain} & \textbf{Observation map $h$} & \textbf{Integer invariant} \\
 \hline
-Information geometry & Fisher projection & Rank (integer) \\
-Quantum mechanics & Observable eigenbasis & Eigenvalues \\
-Symbol formation & Functional output map & Tokens \\
-Cosmology & Causal observation & Particle species \\
+Information geometry & Score function & Fisher rank \\
+Quantum mechanics & Measurement projection & Degeneracy, quantum numbers \\
+Symbol formation & Output function & Alphabet size (at finite $\varepsilon$) \\
 \hline
 \end{tabular}
 \end{center}
@@ -301,11 +342,13 @@ In each case:
 \begin{enumerate}
     \item The substrate is continuous and high-dimensional.
     \item Observation defines an equivalence relation via projection.
-    \item Equivalence classes are necessarily discrete.
-    \item Structural changes (coupling, measurement, bifurcation) produce rank jumps.
+    \item The map carries integer-valued invariants (rank, dimension, index).
+    \item Structural changes (coupling, measurement, bifurcation) produce discrete transitions in these invariants.
 \end{enumerate}
 
-This is not a claim that all discrete phenomena reduce to one mechanism. It is a claim that the \emph{same geometric structure} underlies diverse manifestations of discreteness, and that this structure is a necessary consequence of finite-capacity observation.
+Note: we have removed ``cosmology'' from this table, as the connection between local rank and cosmological structure is conjectural (see Discussion).
+
+This is not a claim that all discrete phenomena reduce to one mechanism. It is a claim that \emph{integer-valued invariants of observation maps} underlie diverse manifestations of discreteness.
 
 \section{Discussion}
 
@@ -329,23 +372,24 @@ This suggests a different approach to quantum gravity: rather than quantizing th
 
 \section{Conclusion}
 
-We have identified a unifying mechanism for the emergence of discreteness in physics: \textbf{observation defines a quotient, and quotients produce integers}.
+We have identified a unifying mechanism for discrete transitions in physics: \textbf{observation maps carry integer-valued invariants that can change only discretely}.
 
-This mechanism operates identically across domains:
+The key invariant is the \emph{identifiable dimension}---the rank of the observation differential---which controls how many effective degrees of freedom are accessible. When this rank changes, qualitative transitions occur in what observers can represent, encode, or control.
+
+This mechanism operates across domains:
 \begin{itemize}
-    \item In information geometry, Fisher rank counts identifiable parameters.
-    \item In quantum mechanics, eigenvalues label measurement equivalence classes.
-    \item In symbol formation, tokens label functionally equivalent phase-space regions.
-    \item In cosmology, particle species label observationally equivalent field configurations.
+    \item In information geometry, Fisher rank counts identifiable parameters; coupling activation produces rank jumps.
+    \item In quantum mechanics, degeneracies and quantum numbers are integer invariants of the measurement structure.
+    \item In symbol formation, alphabet size at finite resolution scales as $\varepsilon^{-r}$ where $r$ is the identifiable dimension.
 \end{itemize}
 
-The framework yields a powerful reduction of the anthropic principle. The standard formulation---``the universe must be compatible with observers''---fragments into dozens of fine-tuning puzzles (physical constants, chemistry, cosmology). Our formulation reduces all of these to a single geometric requirement: \textbf{dimensionality must be variable}.
+\medskip
+\noindent\fbox{\parbox{\dimexpr\linewidth-2\fboxsep-2\fboxrule}{%
+\textbf{What we claim.} Observation maps carry integer-valued invariants (rank, dimension, index). Discrete transitions in observed phenomena correspond to discrete changes in these invariants.\\[0.5em]
+\textbf{What we do NOT claim.} Quotients automatically produce discrete equivalence classes. (They don't---see \S2.3.) Continuous spectra don't exist. (They do---see \S4.2.) All fine-tuning reduces to one principle. (It might, but this is conjecture---see \S6.)}}
+\medskip
 
-Observation is projection. Projection requires a dimensional gradient: high-D substrate collapsing to low-D output. If dimensionality were uniform everywhere, there would be no projection, no observation, no observers. Therefore, observers necessarily find themselves in regions where dimensionality varies---where gradients exist, where projection is possible, where discrete structure emerges from continuous substrates.
-
-This is not fine-tuning. It is selection. We are not in a special universe; we are in the only kind of region where the question can be asked.
-
-The ubiquity of integers in physics is not mysterious once we recognize that observation is projection, and projection produces discrete equivalence classes by geometric necessity.
+The ubiquity of integers in physics is not mysterious once we recognize that observation maps have integer-valued invariants by geometric necessity. The ``discreteness problem'' shifts from ``why is reality discrete?'' to ``why do observation channels have finite rank?''---and the latter has a straightforward answer: finite-capacity systems cannot resolve infinite-dimensional structure.
 
 \textbf{Discreteness is not fundamental; identifiability is.}
 
