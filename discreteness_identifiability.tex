@@ -1,0 +1,327 @@
+\documentclass[11pt,english,twoside]{article}
+\usepackage{babel}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+\usepackage{amsmath,amssymb}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage[utf8]{inputenc}
+\usepackage{float}
+\usepackage{mathtools}
+\usepackage[font=scriptsize,labelfont=bf]{caption}
+\graphicspath{ {./} {./figures/} }
+\titleformat{\section}{\normalsize\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection}{1em}{}
+
+\usepackage{geometry}
+\geometry{
+ a4paper,
+ total={170mm,257mm},
+ left=20mm,
+ right=20mm,
+ top=15mm,
+ bottom=20mm
+}
+
+\begin{document}
+
+\thispagestyle{empty}
+\setcounter{page}{1}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead{}
+\fancyhead[RO,LE]{\vspace{15pt}\\Discreteness from Identifiability}
+\fancyfoot{}
+\fancyfoot[LE,RO]{\thepage}
+\fancyfoot[RE,LO]{\url{https://ipipublishing.org/index.php/ipil/}}
+\renewcommand{\headrulewidth}{0.4pt}
+
+\begin{minipage}{0.14\textwidth}
+\includegraphics[width=0.9\textwidth]{IPI_Pub_Logo.jpg}
+\end{minipage}
+\hfill
+\begin{minipage}{0.5\textwidth}
+\includegraphics[width=1.05\textwidth]{IPIL_Logo.jpg}
+\end{minipage}
+\begin{minipage}{0.3\textwidth}
+\begin{flushright}
+{\scriptsize
+ISSN 2976 - 730X\\
+IPI Letters 2026, Vol x (x):x-x\\
+\href{https://doi.org/10.59973/ipil.xx}{\color{blue}{https://doi.org/10.59973/ipil.xx}}\\
+\medskip
+Received: 2026-xx-xx\\
+Accepted: 2026-xx-xx\\
+Published: 2026-xx-xx\\
+}\end{flushright}
+\end{minipage}
+
+\vspace{0.5cm}
+
+\par\noindent\rule{\textwidth}{0.5pt}\\
+{\color{red}\textbf{Article}}
+
+\begin{center}
+\vspace{0.5cm}
+{\huge {\bf Discreteness from Identifiability: Why Continuous Physics Produces Integers}}
+\vspace{0.5cm}
+\end{center}
+
+\noindent
+{\large {\bf Ian Todd$^\bold{1,*}$}}
+
+\vspace{0.1in}
+
+\noindent
+{\footnotesize $^1$Sydney Medical School, University of Sydney, Sydney, NSW, Australia
+
+\vspace{0.1in}
+
+\noindent
+$^*$Corresponding author: \href{mailto:itod2305@uni.sydney.edu.au}{\color{blue}{itod2305@uni.sydney.edu.au}}
+}
+\vspace{1cm}
+
+\noindent
+{\small {\bf Abstract} - Discrete phenomena pervade physics: quantum numbers, particle species, phase transitions, symbolic codes. Yet the underlying state spaces are typically continuous. We identify a unifying mechanism: \emph{discreteness emerges from identifiability}. When a continuous high-dimensional system is observed through a constraint, symmetry, or projection, the observation map induces equivalence classes on the state space. The number of distinguishable classes---measured by the rank of the observation map's differential---is necessarily integer-valued. Structural changes that alter this rank produce discrete jumps. We demonstrate this mechanism in three domains: (1) information geometry, where Fisher rank activation under coupling produces emergent statistical coordinates; (2) quantum mechanics, where measurement eigenvalues label equivalence classes under the observable's action; (3) symbol formation, where tokens emerge as stable equivalence classes in phase space. The same quotient-geometric structure explains early universe organization: apparent discrete structure arises not from creation but from the projection through which observers access the underlying geometry. We propose that discreteness is not fundamental but \emph{observational}---a necessary consequence of finite-capacity observers accessing high-dimensional substrates.}
+
+\vspace{0.75cm}
+
+\noindent
+{\small {\bf Keywords} - Discreteness; Identifiability; Quotient geometry; Fisher information; Emergence; Observation}
+
+\vspace{0.2cm}
+\par\noindent\rule{\textwidth}{0.5pt}
+
+\section{Introduction}
+
+Physics repeatedly produces integers from continuous substrates. Quantum mechanics yields discrete spectra. Statistical mechanics produces phase transitions at critical points. Biological systems generate symbolic codes. Digital computation emerges from analog circuits. In each case, the underlying dynamics are continuous, yet the observed phenomena are discrete.
+
+The standard explanations are domain-specific: quantum discreteness comes from eigenvalue equations; phase transitions from symmetry breaking; codes from evolutionary selection. But the pattern is too universal to be coincidental. We propose a common mechanism: \textbf{discreteness emerges from identifiability}.
+
+The argument is geometric. Consider a smooth map $F: X \to Y$ from a high-dimensional state space $X$ to an observation space $Y$. The differential $dF$ determines which directions in $X$ produce distinguishable outputs in $Y$. The rank of $dF$---the dimension of the identifiable subspace---can only take integer values: $\mathrm{rank}(dF) \in \{0, 1, 2, \ldots, \min(\dim X, \dim Y)\}$.
+
+When parameters or coupling change the structure of $F$, the rank can increase or decrease. But it can only jump by integers. Smooth variation in the underlying physics produces discrete transitions in what can be observed.
+
+This paper develops this insight across three domains and connects it to cosmological structure. The goal is not to replace existing explanations but to identify the common geometric mechanism that makes discrete phenomena \emph{inevitable} whenever continuous systems are observed through finite-capacity channels.
+
+\section{The Quotient-Geometric Mechanism}
+
+\subsection{Observation as Projection}
+
+Let $X$ be a smooth manifold representing the full state space of a physical system, and let $h: X \to Y$ be a smooth observation map. Two states $x_1, x_2 \in X$ are \emph{observationally equivalent} if $h(x_1) = h(x_2)$. This equivalence relation partitions $X$ into fibers:
+\begin{align}
+    [x] := \{x' \in X : h(x') = h(x)\}.
+\end{align}
+The quotient space $X/{\sim}$ is the space of distinguishable observations. Under mild regularity conditions, this quotient inherits smooth structure from $X$.
+
+\subsection{Rank as Identifiable Dimension}
+
+The differential $dh_x: T_x X \to T_{h(x)} Y$ determines which infinitesimal variations at $x$ produce distinguishable changes in observation. The \emph{identifiable dimension} at $x$ is:
+\begin{align}
+    r(x) := \mathrm{rank}(dh_x).
+\end{align}
+This is the dimension of the subspace of state-space directions that ``matter'' for observation.
+
+\medskip
+\noindent\fbox{\parbox{\dimexpr\linewidth-2\fboxsep-2\fboxrule}{%
+\textbf{Key property.} The rank function $r: X \to \mathbb{Z}_{\geq 0}$ is integer-valued by definition. It is lower semicontinuous: rank can only jump \emph{up} under limits. Generic perturbations do not change rank; only structural transitions (bifurcations, symmetry breaking, coupling activation) produce rank jumps.}}
+\medskip
+
+\subsection{Why Integers Are Inevitable}
+
+The appearance of integers is not contingent but geometric. Any smooth map between manifolds has a well-defined rank at each point, and rank is integer-valued. This is pure linear algebra: the rank of a linear map equals the dimension of its image, which must be a non-negative integer.
+
+What makes this physically significant is that \emph{observation maps are ubiquitous}. Every measurement, every projection, every coarse-graining is an observation map. And every observation map produces integer-valued rank, hence potential for discrete jumps.
+
+The ``discreteness problem'' dissolves: we should not ask why physics produces integers, but rather why we expected otherwise. The continuous substrate is real; the discrete observations are the necessary consequence of finite-capacity observation.
+
+\section{Information Geometry: Rank Activation Under Coupling}
+
+The first application is to coupled dynamical systems, using the information-geometric framework developed in [1].
+
+\subsection{Fisher Rank as Identifiable Dimension}
+
+Consider a family of probability distributions $\{p_\theta : \theta \in \Theta\}$ parameterized by $\theta$. The Fisher information matrix is:
+\begin{align}
+    g_{ij}(\theta) = \mathbb{E}_{p_\theta}\left[\frac{\partial \log p_\theta}{\partial \theta^i} \frac{\partial \log p_\theta}{\partial \theta^j}\right].
+\end{align}
+The \emph{Fisher rank} $R(\theta) := \mathrm{rank}(g(\theta))$ counts identifiable parameters---directions in parameter space that produce statistically distinguishable distributions.
+
+\subsection{Coupling Activates Rank}
+
+For uncoupled systems, parameters governing interaction are unidentifiable: they don't affect the observed distribution. Formally, if $\kappa$ is a coupling parameter and the system factors as $p_\theta = p_{\theta_1} \otimes p_{\theta_2}$ at $\kappa = 0$, then:
+\begin{align}
+    \frac{\partial p_\theta}{\partial \kappa}\bigg|_{\kappa=0} = 0 \implies g_{\kappa\kappa}(0) = 0.
+\end{align}
+The coupling direction has zero Fisher information; $\kappa$ is not identifiable.
+
+When coupling activates ($\kappa > 0$), the distribution becomes non-factorizable. New directions in parameter space become identifiable. The Fisher rank increases:
+\begin{align}
+    R(\kappa > 0) > R(0).
+\end{align}
+
+This is \textbf{manifold expansion}: coupling reveals new statistical coordinates that were hidden at $\kappa = 0$. The rank jump is discrete---from $R(0)$ to $R(\kappa)$ without intermediate values. A continuous change in coupling produces a discrete change in identifiable dimension.
+
+\subsection{Example: Coupled Oscillators}
+
+In Kuramoto oscillators with coupling $K$, the order parameter $(r, \Psi)$ becomes identifiable only above a critical coupling $K_c$. Below threshold, all coupling values produce statistically indistinguishable outputs (for observations restricted to $(r, \Psi)$). Above threshold, the Fisher rank jumps from 0 to 2. This discrete transition---the synchronization transition---emerges from continuous dynamics through the rank mechanism.
+
+\section{Quantum Mechanics: Eigenvalues as Quotient Labels}
+
+\subsection{Measurement as Quotient}
+
+In quantum mechanics, measurement of observable $\hat{A}$ partitions Hilbert space into eigenspaces:
+\begin{align}
+    \mathcal{H} = \bigoplus_\lambda \mathcal{H}_\lambda, \quad \mathcal{H}_\lambda := \{|\psi\rangle : \hat{A}|\psi\rangle = \lambda|\psi\rangle\}.
+\end{align}
+States within the same eigenspace are observationally equivalent with respect to $\hat{A}$: they yield the same measurement outcome with certainty.
+
+The eigenvalues $\{\lambda\}$ are labels for equivalence classes---points in the quotient space $\mathcal{H}/{\sim_A}$. Their discreteness is not a property of the underlying Hilbert space (which is continuous, even infinite-dimensional) but of the quotient structure induced by measurement.
+
+\subsection{Why Eigenvalues Are Discrete}
+
+The discreteness of bound-state spectra follows from compactness of the configuration space (or decay conditions at infinity). But the more fundamental point is that eigenvalues label equivalence classes, and equivalence classes are inherently discrete: a state is either in a class or not.
+
+The continuous Hilbert space admits uncountably many states. The quotient by any non-trivial observable produces at most countably many (often finitely many) equivalence classes. Discreteness is the \emph{structure of the quotient}, not a property of the substrate.
+
+\subsection{Collapse as Projection}
+
+Quantum ``collapse'' is projection from the full state to an equivalence class. This is the same geometric move as dimensional reduction: high-dimensional continuous dynamics, viewed through a low-dimensional projection, produce discrete outputs.
+
+The probabilistic aspect (Born rule) determines \emph{which} equivalence class; the quotient structure determines \emph{that} equivalence classes exist and are discrete.
+
+\section{Symbol Formation: Tokens as Equivalence Classes}
+
+\subsection{Codes from Dynamics}
+
+Biological and cognitive systems produce discrete symbols (genetic codons, phonemes, concepts) from continuous underlying dynamics. The standard explanation invokes evolutionary selection for error-robustness. But this begs the question: why are discrete codes \emph{possible}?
+
+The answer is again quotient geometry. A symbol is a stable equivalence class in phase space: a region where many different microstates produce the same functional output.
+
+\subsection{Stability Requires Discreteness}
+
+For a symbol to be reliably transmitted, it must be robust to perturbation. This requires that small changes in the underlying state do not change the symbol---i.e., that the symbol labels an \emph{open} set in state space.
+
+But open sets in the quotient topology correspond to equivalence classes that are stable under small perturbations of the observation map. The number of such stable classes is finite (or at most countable). Discreteness of the symbol alphabet follows from stability requirements.
+
+\subsection{The Alphabet Size}
+
+The number of distinguishable symbols is bounded by the rank of the observation map. If $h: X \to Y$ has rank $r$, then at most $O(\varepsilon^{-r})$ symbols can be distinguished at resolution $\varepsilon$. Higher rank admits larger alphabets; lower rank forces coarser coding.
+
+This connects to the ``minimal embedding dimension'' results [2]: cyclic processes require $k \geq 3$ for continuous dynamics; below this threshold, dynamics collapse into discrete categories. The discreteness is not chosen but \emph{forced} by dimensional constraints.
+
+\section{Cosmological Structure: Why Something Rather Than Nothing?}
+
+\subsection{The Puzzle of Early Structure}
+
+The early universe exhibits more structure than naive thermodynamic arguments suggest. Galaxies, large-scale filaments, and discrete particle species appear ``too early'' given the time available for equilibration. The standard explanation invokes initial conditions (inflation, symmetry breaking). But this pushes the question back: why were initial conditions structured?
+
+\subsection{Projection Creates Apparent Structure}
+
+Our framework offers a different perspective: apparent structure may be a projection artifact.
+
+If the underlying geometry is high-dimensional and the observation channel (causal structure, measurement apparatus, cognitive interface) is low-dimensional, then \emph{any} observer will see discrete structure---even if the substrate is homogeneous.
+
+The discrete particle spectrum (electron, quark, photon, etc.) labels equivalence classes under the observation map defined by our measurement channels. The question ``why these particles?'' becomes ``why this observation map?''---which is ultimately a question about observer constitution, not substrate ontology.
+
+\subsection{Why Is There Something?}
+
+The question ``why is there something rather than nothing'' dissolves if ``something'' means ``discrete identifiable structure.'' On our account, \emph{any} observation of a continuous high-dimensional substrate produces discrete structure. The alternative---a homogeneous, structureless observation---would require the observation map to have rank zero, which means no observation at all.
+
+To observe is to project. To project is to quotient. To quotient is to produce equivalence classes. Equivalence classes are discrete. Therefore: to observe is to see discreteness.
+
+\section{The Structural Spine}
+
+The preceding applications share a common structure:
+
+\begin{center}
+\begin{tabular}{|l|l|l|}
+\hline
+\textbf{Domain} & \textbf{Observation map} & \textbf{Discrete output} \\
+\hline
+Information geometry & Fisher projection & Rank (integer) \\
+Quantum mechanics & Observable eigenbasis & Eigenvalues \\
+Symbol formation & Functional output map & Tokens \\
+Cosmology & Causal observation & Particle species \\
+\hline
+\end{tabular}
+\end{center}
+
+In each case:
+\begin{enumerate}
+    \item The substrate is continuous and high-dimensional.
+    \item Observation defines an equivalence relation via projection.
+    \item Equivalence classes are necessarily discrete.
+    \item Structural changes (coupling, measurement, bifurcation) produce rank jumps.
+\end{enumerate}
+
+This is not a claim that all discrete phenomena reduce to one mechanism. It is a claim that the \emph{same geometric structure} underlies diverse manifestations of discreteness, and that this structure is a necessary consequence of finite-capacity observation.
+
+\section{Discussion}
+
+\subsection{Discreteness Is Observational, Not Ontological}
+
+We propose a shift in perspective: from ``the world is discrete'' to ``observation produces discreteness.'' The integers in physics are not stamped into reality at the Planck scale; they emerge whenever continuous dynamics are accessed through finite-capacity channels.
+
+This does not make discreteness illusory. The quotient structure is real, objective, and measurable. But it is a property of the observation relation, not of the substrate alone.
+
+\subsection{Relation to the Infodynamics Framework}
+
+This paper extends the infodynamics framework developed in [3,4,5]. The geometric maintenance bound [3] shows that asymmetric states cost work. The aperture theory [4] shows that time is observer-relative information rate. The relaxation framework [5] grounds both in cosmological dynamics.
+
+The present paper adds a complementary insight: the \emph{discreteness} of structure is also observation-dependent. Integers emerge from the rank of the observation map, just as time dilation emerges from aperture contraction.
+
+\subsection{Implications for Quantization}
+
+If discreteness arises from observation rather than substrate, then ``quantization'' may be misnamed. We are not discovering that reality is made of discrete chunks. We are discovering that our observation channels have finite rank, and finite rank produces integer-valued invariants.
+
+This suggests a different approach to quantum gravity: rather than quantizing the metric (making spacetime discrete), we might characterize the observation interface through which the metric becomes accessible [6]. Discreteness would then be a property of the channel, not of spacetime itself.
+
+\section{Conclusion}
+
+We have identified a unifying mechanism for the emergence of discreteness in physics: \textbf{observation defines a quotient, and quotients produce integers}.
+
+This mechanism operates identically across domains:
+\begin{itemize}
+    \item In information geometry, Fisher rank counts identifiable parameters.
+    \item In quantum mechanics, eigenvalues label measurement equivalence classes.
+    \item In symbol formation, tokens label functionally equivalent phase-space regions.
+    \item In cosmology, particle species label observationally equivalent field configurations.
+\end{itemize}
+
+The ubiquity of integers in physics is not mysterious once we recognize that observation is projection, and projection produces discrete equivalence classes by geometric necessity.
+
+\textbf{Discreteness is not fundamental; identifiability is.}
+
+\section*{Acknowledgements}
+
+The author thanks the developers of Claude Code (Anthropic) for assistance with manuscript preparation.
+
+\begin{thebibliography}{6}
+{\scriptsize
+
+\bibitem{todd2026manifold}
+I. Todd, Manifold expansion via coupling: Fisher rank increases under dynamical interaction, Annals of the Institute of Statistical Mathematics (in preparation, 2026)
+
+\bibitem{todd2025embedding}
+I. Todd, Minimal embedding dimension for self-intersection-free recurrent processes, Information Geometry (submitted, 2025)
+
+\bibitem{todd2026infodynamics}
+I. Todd, A thermodynamic foundation for the second law of infodynamics, IPI Letters (in press, 2026)
+
+\bibitem{todd2026aperture}
+I. Todd, Time as information rate through dimensional apertures: Black hole phenomenology from observer-relative channel capacity, IPI Letters (submitted, 2026)
+
+\bibitem{todd2026cosmic}
+I. Todd, Time, mathematics, and the relaxing knot: A geometric foundation for infodynamics, IPI Letters (submitted, 2026)
+
+\bibitem{todd2026gravity}
+I. Todd, Gravity as constraint compliance: A thermodynamic framework for quantum gravity, Foundations of Physics (in preparation, 2026)
+
+}
+\end{thebibliography}
+
+\end{document}
