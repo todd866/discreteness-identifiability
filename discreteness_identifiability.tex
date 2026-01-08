@@ -269,20 +269,47 @@ This definition is substrate-independent: it applies to brains, measuring device
 
 \textit{Proof.}
 
-\textbf{(i) Rank $> 0$:} Suppose $\mathrm{rank}(dh) = 0$ everywhere. Then $dh = 0$, so $h$ is locally constant: $h(x_1) = h(x_2)$ for all $x_1, x_2$ in any connected component. The representation carries no information about the environment state. But then $h(x)$ cannot enable prediction or control---it provides no discrimination between states. This violates Utility. $\Rightarrow$ $\mathrm{rank}(dh) > 0$.
+\textbf{(i) Rank $> 0$:}
 
-\textbf{(ii) Rank $< \dim X$:} Suppose $\mathrm{rank}(dh) = \dim X$ everywhere, and $\dim \mathcal{S} \geq \dim X$. Then $h$ is an immersion: locally injective, with trivial fibers. Every infinitesimal change in $x$ produces a distinguishable change in $h(x)$.
+Suppose $\mathrm{rank}(dh_x) = 0$ for all $x \in X$. Then $dh_x = 0$ everywhere, which means $h$ is locally constant on each connected component of $X$.
 
-This violates Stability in three ways:
+Let $U \subseteq X$ be a connected open set. For any $x_1, x_2 \in U$, we can connect them by a path $\gamma: [0,1] \to U$. Then:
+\begin{align}
+    h(x_2) - h(x_1) = \int_0^1 dh_{\gamma(t)}(\dot{\gamma}(t))\, dt = 0
+\end{align}
+since $dh = 0$ everywhere. Thus $h$ is constant on $U$.
+
+If $h$ is constant on connected components, then for any $x_1, x_2$ in the same component, $h(x_1) = h(x_2)$. The representation provides no discrimination between states in the same component. But Utility requires that $h(x)$ enables prediction or control, which is impossible if $h$ cannot distinguish states.
+
+Formally: let $f: X \to \mathbb{R}$ be any predictable quantity (e.g., future reward, system evolution). For $h$ to enable prediction of $f$, there must exist a map $\hat{f}: \mathcal{S} \to \mathbb{R}$ such that $\hat{f}(h(x)) \approx f(x)$. But if $h(x_1) = h(x_2)$ for all $x_1, x_2$ in a component, then $\hat{f}(h(x))$ is constant on that component, hence cannot approximate any non-constant $f$.
+
+$\Rightarrow$ Utility is violated $\Rightarrow$ $\mathrm{rank}(dh) > 0$ somewhere. By continuity and the definition requiring this to hold throughout the observer's domain, we need $\mathrm{rank}(dh) > 0$. $\checkmark$
+
+\medskip
+\textbf{(ii) Rank $< \dim X$:}
+
+Suppose $\mathrm{rank}(dh_x) = \dim X$ for all $x \in X$ (and $\dim \mathcal{S} \geq \dim X$). Then by the inverse function theorem, $h$ is a local diffeomorphism onto its image---in particular, $h$ is locally injective.
+
+Local injectivity means: for each $x$, there exists a neighborhood $U_x$ such that $h|_{U_x}$ is injective. Equivalently, the fiber $h^{-1}(h(x)) \cap U_x = \{x\}$ is a singleton.
+
+But Stability requires that small perturbations of $x$ do not change the representation. Formally, Stability means there exists $\varepsilon > 0$ such that for all $\|x' - x\| < \varepsilon$, we have $h(x') = h(x)$---i.e., the fiber $h^{-1}(h(x))$ contains a neighborhood of $x$.
+
+These are contradictory:
 \begin{itemize}
-    \item \textbf{No equivalence classes}: If fibers are singletons, there are no nontrivial equivalence classes---no ``same representation for different microstates.''
-    \item \textbf{No noise tolerance}: Any perturbation $x \mapsto x + \delta x$ changes the output. The representation is maximally sensitive to noise.
-    \item \textbf{No compression}: The representation has the same complexity as the environment. But then $S$ is not representing $X$; it is \emph{duplicating} $X$. This is not observation but copying.
+    \item Local injectivity $\Rightarrow$ fiber $\cap$ neighborhood $= \{x\}$
+    \item Stability $\Rightarrow$ fiber $\supseteq$ neighborhood of $x$
 \end{itemize}
 
-Moreover, Utility requires generalization: the representation must group states that require similar responses. If every state maps to a unique representation, no generalization occurs---the system cannot learn or predict, only memorize.
+Therefore, Stability and $\mathrm{rank}(dh) = \dim X$ are incompatible.
 
-$\Rightarrow$ $\mathrm{rank}(dh) < \dim X$. \hfill $\square$
+$\Rightarrow$ Stability requires $\mathrm{rank}(dh) < \dim X$. $\checkmark$
+
+\medskip
+\textbf{Combining (i) and (ii):} Any $h$ satisfying the observer definition must have $0 < \mathrm{rank}(dh) < \dim X$. \hfill $\square$
+
+\medskip
+\noindent\fbox{\parbox{\dimexpr\linewidth-2\fboxsep-2\fboxrule}{%
+\textbf{Remark.} The inequality is strict on both sides. The proof shows that the boundary cases ($\mathrm{rank} = 0$ or $\mathrm{rank} = \dim X$) violate the core requirements of Utility and Stability respectively. The ``sweet spot'' for observation is $0 < r < n$, which is precisely what we call a dimensional gradient.}}
 
 \subsection{The Anthropic Implication}
 
