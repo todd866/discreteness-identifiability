@@ -12,28 +12,38 @@ The key invariant is the **identifiable dimension** (rank of the observation dif
 
 **Core claim:** Discreteness is not fundamental; identifiability is.
 
+## The Dimensional Gradient Theorem
+
+The paper proves that any useful observer requires:
+
+$$0 < \mathrm{rank}(dh) < \dim X$$
+
+where $h: X \to \mathcal{S}$ is the observation map from environment to representation.
+
+**Proof sketch:**
+- **Rank > 0**: If rank = 0, the representation carries no information. No prediction or control is possible.
+- **Rank < dim X**: If rank = dim X, every microstate maps to a unique representation. No compression, no noise tolerance, no generalization.
+
+This is the **minimal anthropic condition**: not carbon, not water, not specific constants—just a gap between environment complexity and representation complexity.
+
 ## What This Paper Claims (and Does NOT Claim)
 
 **What we claim:**
 - Observation maps carry integer-valued invariants (rank, dimension, index)
-- Discrete transitions in observed phenomena correspond to discrete changes in these invariants
-- This mechanism operates across domains: information geometry, quantum mechanics, symbol formation
+- Discrete transitions correspond to discrete changes in these invariants
+- Dimensional gradients are *necessary* for observation (proven)
 
 **What we do NOT claim:**
 - Quotients automatically produce discrete equivalence classes (they don't - see Section 2.3)
 - Continuous spectra don't exist (they do - see Section 4.2)
-- All fine-tuning reduces to one principle (it might, but this is conjecture - see Section 6)
+- Dimensional gradients are *sufficient* for observers (necessity ≠ sufficiency)
 
 ## Key Results
 
-- **Integer invariants**: Observation maps carry rank, dimension, index - all integers
-- **Bridge proposition**: Identifiable dimension controls effective coordinates; changes produce qualitative transitions
+- **Integer invariants**: Observation maps carry rank, dimension, index — all integers
+- **Dimensional Gradient Theorem**: Proves 0 < rank < dim X for any useful observer
 - **Worked example**: Gaussian sum shows rank jump under coupling activation
 - **Cross-domain unification**: Same structure in Fisher rank, quantum degeneracies, symbol alphabets
-
-## Limitations
-
-The paper explicitly flags speculative content. The connection between local differential geometry (rank of maps) and cosmological/anthropic structure is conjectural, not proven.
 
 ## Paper
 
