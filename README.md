@@ -1,35 +1,39 @@
 # Discreteness from Identifiability
 
-**Why continuous physics produces integers: observation defines a quotient, and quotients produce discrete equivalence classes.**
+**Why continuous physics produces integers: observation maps carry integer-valued invariants that can change only discretely.**
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## Overview
 
-Discrete phenomena pervade physics: quantum numbers, particle species, phase transitions, symbolic codes. Yet the underlying state spaces are continuous. We identify a unifying mechanism: when a high-dimensional continuous system is observed through a constraint, symmetry, or projection, the observation map induces equivalence classes. The number of distinguishable classes — the rank of the differential — is necessarily integer-valued.
+Discrete phenomena pervade physics: quantum numbers, particle species, phase transitions, symbolic codes. Yet the underlying state spaces are continuous. We identify a unifying mechanism: observation maps carry integer-valued invariants (rank, dimension, index) that can change only discretely.
+
+The key invariant is the **identifiable dimension** (rank of the observation differential), which controls how many effective degrees of freedom are accessible. When this rank changes, qualitative transitions occur.
 
 **Core claim:** Discreteness is not fundamental; identifiability is.
 
-## The Anthropic Reduction
+## What This Paper Claims (and Does NOT Claim)
 
-The standard anthropic principle fragments into dozens of fine-tuning puzzles. This paper reduces all of them to a single geometric requirement:
+**What we claim:**
+- Observation maps carry integer-valued invariants (rank, dimension, index)
+- Discrete transitions in observed phenomena correspond to discrete changes in these invariants
+- This mechanism operates across domains: information geometry, quantum mechanics, symbol formation
 
-> **Dimensionality must be variable.**
-
-The argument:
-1. Observation requires projection (high-D → low-D)
-2. Projection requires a dimensional gradient
-3. If dimensionality were uniform everywhere, there would be no projection, no observation, no observers
-4. Therefore: observers necessarily find themselves where dimensionality varies
-
-All fine-tuning (constants, chemistry, cosmology) reduces to: *does this configuration permit dimensional gradients that support observation?*
+**What we do NOT claim:**
+- Quotients automatically produce discrete equivalence classes (they don't - see Section 2.3)
+- Continuous spectra don't exist (they do - see Section 4.2)
+- All fine-tuning reduces to one principle (it might, but this is conjecture - see Section 6)
 
 ## Key Results
 
-- **Quotient mechanism**: Observation defines equivalence classes; equivalence classes are necessarily discrete
-- **Anthropic reduction**: One condition (variable dimensionality) replaces dozens of fine-tuning puzzles
-- **Cross-domain unification**: Same mechanism in information geometry (Fisher rank), quantum mechanics (eigenvalues), symbol formation (tokens), cosmology (particle species)
-- **"Why something?" dissolved**: To ask is to observe; to observe is to project; projection produces integers
+- **Integer invariants**: Observation maps carry rank, dimension, index - all integers
+- **Bridge proposition**: Identifiable dimension controls effective coordinates; changes produce qualitative transitions
+- **Worked example**: Gaussian sum shows rank jump under coupling activation
+- **Cross-domain unification**: Same structure in Fisher rank, quantum degeneracies, symbol alphabets
+
+## Limitations
+
+The paper explicitly flags speculative content. The connection between local differential geometry (rank of maps) and cosmological/anthropic structure is conjectural, not proven.
 
 ## Paper
 
