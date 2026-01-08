@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.11.12)  8 JAN 2026 19:22
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.11.12)  8 JAN 2026 19:30
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -528,7 +528,7 @@ Package caption Info: End \AtBeginDocument code.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-<IPI_Pub_Logo.jpg, id=140, 384.6872pt x 383.93437pt>
+<IPI_Pub_Logo.jpg, id=144, 384.6872pt x 383.93437pt>
 File: IPI_Pub_Logo.jpg Graphic file (type jpg)
 <use IPI_Pub_Logo.jpg>
 Package pdftex.def Info: IPI_Pub_Logo.jpg  used on input line 42.
@@ -544,7 +544,7 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 43.
 (/usr/local/texlive/2025basic/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-<IPIL_Logo.jpg, id=141, 903.375pt x 157.33781pt>
+<IPIL_Logo.jpg, id=145, 903.375pt x 157.33781pt>
 File: IPIL_Logo.jpg Graphic file (type jpg)
 <use IPIL_Logo.jpg>
 Package pdftex.def Info: IPIL_Logo.jpg  used on input line 46.
@@ -635,23 +635,32 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-20.68004pt}.
 
-[9] (./discreteness_identifiability.aux)
+[9]
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 32.68004pt, for example:
+(fancyhdr)                \setlength{\headheight}{32.68004pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-20.68004pt}.
+
+[10] (./discreteness_identifiability.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
 Package rerunfilecheck Info: File `discreteness_identifiability.out' has not ch
 anged.
-(rerunfilecheck)             Checksum: EC3278C9960318980CFC86944B1D3168;6784.
+(rerunfilecheck)             Checksum: 12F2860E8DD1033264D27F7107A5B035;7212.
  ) 
 Here is how much of TeX's memory you used:
- 14489 strings out of 474662
- 232580 string characters out of 5751108
- 653277 words of memory out of 5000000
- 37273 multiletter control sequences out of 15000+600000
+ 14492 strings out of 474662
+ 232614 string characters out of 5751108
+ 654279 words of memory out of 5000000
+ 37274 multiletter control sequences out of 15000+600000
  571188 words of font info for 82 fonts, out of 8000000 for 9000
  319 hyphenation exceptions out of 8191
- 75i,14n,79p,1648b,548s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,14n,79p,1648b,578s stack positions out of 10000i,1000n,20000p,200000b,200000s
  </Users/iantodd/Library/texlive/2025basic/texmf-var/fonts/pk/ljfour/jknappen
 /ec/tcrm1095.600pk></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/
 amsfonts/cm/cmbx10.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/pub
@@ -673,10 +682,10 @@ texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/lo
 cal/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb
 ></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/symbols/m
 sbm10.pfb>
-Output written on discreteness_identifiability.pdf (9 pages, 357445 bytes).
+Output written on discreteness_identifiability.pdf (10 pages, 361268 bytes).
 PDF statistics:
- 347 PDF objects out of 1000 (max. 8388607)
- 293 compressed objects within 3 object streams
- 80 named destinations out of 1000 (max. 500000)
- 283 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 357 PDF objects out of 1000 (max. 8388607)
+ 301 compressed objects within 4 object streams
+ 82 named destinations out of 1000 (max. 500000)
+ 291 words of extra memory for PDF output out of 10000 (max. 10000000)
 

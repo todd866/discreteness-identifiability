@@ -42,7 +42,8 @@ This is the **minimal anthropic condition**: not carbon, not water, not specific
 
 - **Integer invariants**: Observation maps carry rank, dimension, index — all integers
 - **Dimensional Gradient Theorem**: Proves 0 < rank < dim X for any useful observer
-- **Worked example**: Gaussian sum shows rank jump under coupling activation
+- **Capacity Scaling Proposition**: At finite resolution ε, distinguishable outputs scale as O(ε^{-r}) where r is the identifiable dimension
+- **Worked example**: The map h(x,y) = (x, xy) has rank 2 generically but drops to rank 1 on the singular locus {x=0}—a genuine rank change within a single smooth map
 - **Cross-domain unification**: Same structure in Fisher rank, quantum degeneracies, symbol alphabets
 
 ## Paper

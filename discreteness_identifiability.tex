@@ -101,9 +101,9 @@ Physics repeatedly produces integers from continuous substrates. Quantum mechani
 
 The standard explanations are domain-specific: quantum discreteness comes from eigenvalue equations; phase transitions from symmetry breaking; codes from evolutionary selection. But the pattern is too universal to be coincidental. We propose a common mechanism: \textbf{discreteness emerges from identifiability}.
 
-The argument is geometric. Consider a smooth map $F: X \to Y$ from a high-dimensional state space $X$ to an observation space $Y$. The differential $dF$ determines which directions in $X$ produce distinguishable outputs in $Y$. The rank of $dF$---the dimension of the identifiable subspace---can only take integer values: $\mathrm{rank}(dF) \in \{0, 1, 2, \ldots, \min(\dim X, \dim Y)\}$.
+The argument is geometric. Consider a smooth observation map $h: X \to Y$ from a high-dimensional state space $X$ to an observation space $Y$. The differential $dh$ determines which directions in $X$ produce distinguishable outputs in $Y$. The rank of $dh$---the dimension of the identifiable subspace---can only take integer values: $\mathrm{rank}(dh) \in \{0, 1, 2, \ldots, \min(\dim X, \dim Y)\}$.
 
-When parameters or coupling change the structure of $F$, the rank can increase or decrease. But it can only jump by integers. Smooth variation in the underlying physics produces discrete transitions in what can be observed.
+When parameters or state change the structure of $dh$, the rank can increase or decrease. But it can only jump by integers. Smooth variation in the underlying physics produces discrete transitions in what can be observed.
 
 This paper develops this insight across three domains and connects it to cosmological structure. The goal is not to replace existing explanations but to identify the common geometric mechanism that makes discrete phenomena \emph{inevitable} whenever continuous systems are observed through finite-capacity channels.
 
@@ -115,7 +115,7 @@ Let $X$ be a smooth manifold representing the full state space of a physical sys
 \begin{align}
     [x] := \{x' \in X : h(x') = h(x)\}.
 \end{align}
-The quotient space $X/{\sim}$ is the space of distinguishable observations. Under mild regularity conditions, this quotient inherits smooth structure from $X$.
+The quotient space $X/{\sim}$ is the space of distinguishable observations. When $h$ is a submersion onto its image (constant rank equal to $\dim h(X)$), the quotient inherits a manifold structure locally diffeomorphic to the image. More generally, the quotient may be a stratified space, with smooth strata corresponding to regions of constant rank.
 
 \subsection{Rank as Identifiable Dimension}
 
@@ -141,12 +141,28 @@ The appearance of integers is not contingent but geometric. Any smooth map betwe
 
 The physically significant claim is this: if the identifiable dimension $r(x)$ controls how many effective degrees of freedom are accessible to an observer, then any qualitative change in what can be represented, encoded, or controlled will occur when $r(x)$ changes---and $r(x)$ changes only in integer steps.
 
-\textbf{Proposition (informal).} Let $h: X \to Y$ be an observation map with identifiable dimension $r = \mathrm{rank}(dh)$. Then:
+\medskip
+\noindent\textbf{Proposition (Capacity Scaling).} Let $h: X \to Y$ be a smooth observation map, and let $U \subseteq X$ be an open region where $\mathrm{rank}(dh) = r$ is constant. Equip $Y$ with a metric. Then:
 \begin{enumerate}
-    \item The number of effective coordinates accessible to the observer is at most $r$.
-    \item At finite resolution $\varepsilon$, the number of distinguishable outputs scales as $O(\varepsilon^{-r})$.
-    \item Changes in $r$ produce qualitative transitions in the observer's effective description.
+    \item[(a)] The image $h(U)$ is locally an $r$-dimensional submanifold of $Y$.
+    \item[(b)] If additionally $h(U)$ is bounded with finite $r$-dimensional volume $V_r$, then the $\varepsilon$-covering number satisfies:
+    \begin{align}
+        N(\varepsilon) \sim C \cdot V_r \cdot \varepsilon^{-r}
+    \end{align}
+    for small $\varepsilon$, where $C$ depends on the local geometry.
+    \item[(c)] Changes in $r$ produce discrete changes in capacity scaling exponents.
 \end{enumerate}
+
+\textit{Proof sketch.} Part (a) follows from the \textbf{constant rank theorem}: if $\mathrm{rank}(dh) = r$ on $U$, then locally $h$ is diffeomorphic to the standard projection $\mathbb{R}^n \to \mathbb{R}^r \times \{0\}^{m-r}$. The image is thus locally an $r$-dimensional embedded submanifold.
+
+Part (b) is standard from metric geometry: an $r$-dimensional Riemannian manifold of volume $V_r$ requires $\Theta(\varepsilon^{-r})$ balls of radius $\varepsilon$ to cover. The scaling exponent equals the dimension.
+
+Part (c) follows because the exponent in (b) is exactly $r$, which is integer-valued. A transition from rank $r$ to rank $r+1$ changes the capacity scaling from $O(\varepsilon^{-r})$ to $O(\varepsilon^{-(r+1)})$---a multiplicative factor of $\varepsilon^{-1}$ that diverges as resolution improves. $\square$
+
+\medskip
+\noindent\fbox{\parbox{\dimexpr\linewidth-2\fboxsep-2\fboxrule}{%
+\textbf{Key assumptions.} The proposition requires: (1) constant rank on $U$ (if rank varies, the image is stratified and the dominant stratum determines scaling); (2) boundedness for finite covering numbers; (3) sufficient regularity (Lipschitz bounds) linking $\varepsilon$-balls in $Y$ to preimages in $X$. These assumptions are satisfied in typical physical applications where phase space is bounded and maps are smooth.}}
+\medskip
 
 This connects integer ranks to observable phenomena: number of order parameters, identifiable couplings, capacity scaling laws, and effective degrees of freedom.
 
@@ -164,13 +180,20 @@ The \emph{Fisher rank} $R(\theta) := \mathrm{rank}(g(\theta))$ counts identifiab
 
 \subsection{Coupling Activates Rank}
 
-For uncoupled systems, parameters governing interaction are unidentifiable: they don't affect the observed distribution. Formally, if $\kappa$ is a coupling parameter and the system factors as $p_\theta = p_{\theta_1} \otimes p_{\theta_2}$ at $\kappa = 0$, then:
-\begin{align}
-    \frac{\partial p_\theta}{\partial \kappa}\bigg|_{\kappa=0} = 0 \implies g_{\kappa\kappa}(0) = 0.
-\end{align}
-The coupling direction has zero Fisher information; $\kappa$ is not identifiable.
+Fisher rank deficiency---where $g_{\kappa\kappa} = 0$ for a coupling parameter $\kappa$---arises under specific structural conditions:
 
-When coupling activates ($\kappa > 0$), the distribution becomes non-factorizable. New directions in parameter space become identifiable. The Fisher rank increases:
+\begin{enumerate}
+    \item \textbf{Structural absence}: $\kappa$ is not a parameter in the uncoupled model (different model classes at $\kappa = 0$ vs $\kappa > 0$).
+    \item \textbf{Symmetry forcing}: The distribution has a symmetry (e.g., $\kappa \leftrightarrow -\kappa$) that forces $\partial p / \partial \kappa |_{\kappa=0} = 0$.
+    \item \textbf{Observation restriction}: The observable channel cannot distinguish $\kappa$-dependent effects below threshold.
+\end{enumerate}
+
+\medskip
+\noindent\fbox{\parbox{\dimexpr\linewidth-2\fboxsep-2\fboxrule}{%
+\textbf{Clarification.} Factorization at $\kappa = 0$ does \emph{not} automatically imply $g_{\kappa\kappa}(0) = 0$. A model can factor at $\kappa = 0$ while still having nonzero first derivative there---the coupling ``turns on'' smoothly. Rank deficiency requires one of the conditions above.}}
+\medskip
+
+When coupling activates and rank deficiency is lifted, new directions in parameter space become identifiable. The Fisher rank increases:
 \begin{align}
     R(\kappa > 0) > R(0).
 \end{align}
@@ -185,15 +208,21 @@ In Kuramoto oscillators with coupling $K$, the order parameter $(r, \Psi)$ becom
 
 \subsection{Measurement as Quotient}
 
-In quantum mechanics, measurement of observable $\hat{A}$ partitions Hilbert space into eigenspaces:
+In quantum mechanics, measurement of observable $\hat{A}$ with spectral decomposition $\hat{A} = \sum_\lambda \lambda P_\lambda$ induces an observation map on density matrices:
 \begin{align}
-    \mathcal{H} = \bigoplus_\lambda \mathcal{H}_\lambda, \quad \mathcal{H}_\lambda := \{|\psi\rangle : \hat{A}|\psi\rangle = \lambda|\psi\rangle\}.
+    h(\rho) = \{\mathrm{Tr}(\rho P_\lambda)\}_\lambda
 \end{align}
-States within the same eigenspace are observationally equivalent with respect to $\hat{A}$: they yield the same measurement outcome with certainty. Measurement induces a quotient structure on state space.
+which assigns to each state $\rho$ its \emph{outcome probability distribution}. Two states are observationally equivalent with respect to $\hat{A}$ if they produce the same probability distribution over outcomes:
+\begin{align}
+    \rho_1 \sim \rho_2 \iff \mathrm{Tr}(\rho_1 P_\lambda) = \mathrm{Tr}(\rho_2 P_\lambda) \text{ for all } \lambda.
+\end{align}
+This equivalence relation partitions state space; measurement induces a quotient structure.
 
 \subsection{When Spectra Are Discrete (and When They Are Not)}
 
 The quotient structure itself does not guarantee discrete outcomes. Many observables have \emph{continuous spectrum}: position, momentum, and the free-particle Hamiltonian all yield continuous ranges of eigenvalues. The quotient labels form a continuum.
+
+(For continuous spectrum, the spectral decomposition uses projection-valued measures rather than discrete sums, and ``eigenspaces'' are generalized; the quotient formalism extends via spectral measures.)
 
 Discrete spectra arise from additional structure:
 \begin{itemize}
@@ -335,19 +364,19 @@ Note what this does \emph{not} require:
 
 It requires only that \emph{some} dimensional gradient exists. The traditional fine-tuning puzzles (why these constants?) are reframed: constants must permit the formation of stable, compressive interfaces. This is a weaker requirement than ``constants must permit carbon life.''
 
-\subsection{Why Is There Something?}
+\subsection{A Philosophical Observation (Speculative)}
 
-The theorem also dissolves ``why is there something rather than nothing'':
+The theorem suggests---but does not prove---a dissolution of ``why is there something rather than nothing'':
 
 \begin{enumerate}
-    \item ``Something'' means ``discrete identifiable structure.''
+    \item ``Something'' operationally means ``identifiable structure.''
     \item To ask the question is to observe.
     \item To observe requires $0 < \mathrm{rank}(dh) < \dim X$ (by the theorem).
-    \item If $\mathrm{rank}(dh) > 0$, the observer can make distinctions---there is identifiable structure.
-    \item Therefore: any observer will find themselves in a universe with ``something.''
+    \item If $\mathrm{rank}(dh) > 0$, the observer can make distinctions.
+    \item Therefore: any observer will find identifiable structure.
 \end{enumerate}
 
-The alternative---$\mathrm{rank}(dh) = 0$---is not ``nothing''; it is the absence of observation. The question presupposes its answer.
+The alternative---$\mathrm{rank}(dh) = 0$---is not ``nothing''; it is the absence of observation. This is a \emph{selection effect} argument, not an ontological claim. The theorem shows that observers require dimensional gradients; it does not show that dimensional gradients require observers, nor that ``nothing'' is impossible.
 
 \subsection{Remaining Gaps}
 
@@ -360,46 +389,59 @@ The theorem proves that dimensional gradients are \emph{necessary} for observati
 
 The theorem is local (about $dh$ at a point) and functional (about what observers do). Connecting it to global cosmological structure remains open.
 
-\section{Worked Example: Rank Jump Under Coupling}
+\section{Worked Example: Rank Drop on a Singular Locus}
 
-To ground the abstract framework, we present a concrete example where rank changes discretely.
+To ground the abstract framework, we present a canonical example where rank changes genuinely within a single smooth map.
 
 \subsection{Setup}
 
-Consider two random variables $X_1, X_2$ with a joint distribution parameterized by $(\mu_1, \mu_2, \kappa)$:
+Consider the observation map $h: \mathbb{R}^2 \to \mathbb{R}^2$ defined by:
 \begin{align}
-    X_1 &\sim \mathcal{N}(\mu_1, 1), \quad X_2 \sim \mathcal{N}(\mu_2, 1), \quad \mathrm{Cov}(X_1, X_2) = \kappa.
+    h(x, y) = (x, \, xy).
 \end{align}
-The coupling parameter $\kappa \in [0,1)$ controls correlation.
-
-\subsection{Observation Map}
-
-Suppose we observe only the sum $Y = X_1 + X_2$. Then:
-\begin{align}
-    Y \sim \mathcal{N}(\mu_1 + \mu_2, 2 + 2\kappa).
-\end{align}
-The observation map $h: (\mu_1, \mu_2, \kappa) \mapsto (\mu_1 + \mu_2, 2 + 2\kappa)$ takes 3 parameters to 2 outputs.
+Here $x$ can be interpreted as a coupling strength and $y$ as an amplitude or internal coordinate.
 
 \subsection{Rank Analysis}
 
 The Jacobian of $h$ is:
 \begin{align}
-    dh = \begin{pmatrix} 1 & 1 & 0 \\ 0 & 0 & 2 \end{pmatrix}.
+    dh_{(x,y)} = \begin{pmatrix} 1 & 0 \\ y & x \end{pmatrix}.
 \end{align}
-This has $\mathrm{rank}(dh) = 2$ for all $\kappa > 0$: the mean $\mu_1 + \mu_2$ and variance $2 + 2\kappa$ are identifiable, but $\mu_1$ and $\mu_2$ individually are not.
-
-Now suppose at $\kappa = 0$ the system factors: $X_1$ and $X_2$ are independent. If we restrict to the submanifold $\kappa = 0$, the effective parameter space is $(\mu_1, \mu_2)$ and the observation map becomes $h_0: (\mu_1, \mu_2) \mapsto (\mu_1 + \mu_2, 2)$. This has $\mathrm{rank}(dh_0) = 1$: only the sum is identifiable.
-
-\subsection{The Rank Jump}
-
-Crossing from $\kappa = 0$ to $\kappa > 0$:
+The determinant is $\det(dh) = x$. Therefore:
 \begin{itemize}
-    \item At $\kappa = 0$: rank = 1 (only sum identifiable)
-    \item At $\kappa > 0$: rank = 2 (sum and variance identifiable)
+    \item $\mathrm{rank}(dh) = 2$ when $x \neq 0$ (generic points)
+    \item $\mathrm{rank}(dh) = 1$ when $x = 0$ (the singular locus)
 \end{itemize}
-This is a discrete transition. Continuous variation in $\kappa$ produces a discrete jump in identifiable dimension. The observer's effective description changes qualitatively: a new coordinate (variance sensitivity) becomes accessible.
 
-This toy example illustrates the general mechanism: coupling activation increases Fisher rank, producing discrete transitions in what observers can learn.
+This is a \emph{genuine} rank change within a single smooth map. The rank drops discretely---from 2 to 1---on the singular set $\{x = 0\}$.
+
+\subsection{Identifiability Interpretation}
+
+\textbf{Away from the singular locus} ($x \neq 0$): Both coordinates of $h$ vary independently. From observing $(x, xy)$, we can recover $x$ directly and compute $y = (xy)/x$. The full state $(x,y)$ is identifiable; the identifiable dimension equals $\dim X = 2$.
+
+\textbf{On the singular locus} ($x = 0$): The observation is $h(0, y) = (0, 0)$ for all $y$. The entire $y$-axis collapses to a single point. The amplitude $y$ becomes completely unidentifiable; the identifiable dimension drops to 1.
+
+\subsection{The Discrete Transition}
+
+Consider a path crossing the singular locus: $\gamma(t) = (t, 1)$ for $t \in [-1, 1]$.
+\begin{itemize}
+    \item At $t < 0$: $\mathrm{rank}(dh) = 2$, both coordinates identifiable
+    \item At $t = 0$: $\mathrm{rank}(dh) = 1$, amplitude $y$ unidentifiable
+    \item At $t > 0$: $\mathrm{rank}(dh) = 2$, both coordinates identifiable
+\end{itemize}
+
+The rank function $t \mapsto \mathrm{rank}(dh_{\gamma(t)})$ is integer-valued and lower semicontinuous: it can drop (at $t=0$) but such drops occur on measure-zero sets. Moving away from the singular locus, the rank jumps back up discretely.
+
+\subsection{Physical Interpretation}
+
+This structure appears whenever a coupling parameter ``turns on'' an interaction:
+\begin{itemize}
+    \item \textbf{Phase transitions}: An order parameter $y$ becomes observable only when symmetry-breaking coupling $x$ is nonzero.
+    \item \textbf{Synchronization}: Individual phases become distinguishable only above critical coupling.
+    \item \textbf{Measurement}: A quantum amplitude becomes resolvable only when the detector couples to it.
+\end{itemize}
+
+The key point: the discrete rank change is not an artifact of changing the parameter space or model class. It is a property of the single map $h$ evaluated at different points in its domain.
 
 \section{The Structural Spine}
 
